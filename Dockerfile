@@ -1,3 +1,4 @@
-FROM alpine:3.14
-RUN apk add --no-cache mysql-client
-ENTRYPOINT "mysql"
+FROM alpine
+RUN apk update && \
+    apk add mysql-client
+CMD mysql {mysql-client-options} < {sql.script}
